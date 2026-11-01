@@ -94,6 +94,21 @@ ant -f build-ca.xml test-CA-XJunit
 
 Run `ant -p` (or `ant -f build-ca.xml -p`) to list every target.
 
+### CI
+
+GitHub Actions runs the replication protocol tests (`GenericComparator`,
+`TimestampMaster`, the Silent and Byzantine quorums) on every push to `main`
+and on pull requests. They don't need JBoss, GWT, jUDDI or Fénix:
+[`ci/replication-tests.sh`](ci/replication-tests.sh) generates the SOAP client
+classes with the JDK's `wsimport`, compiles only the replication code and runs
+JUnit. Run it locally with a JDK 8:
+
+```sh
+ci/replication-tests.sh
+# or, without installing Java 8:
+docker run --rm -v "$PWD":/w -w /w eclipse-temurin:8-jdk ci/replication-tests.sh
+```
+
 ## Note on keys
 
 The keys in `RSAkeys/` are throwaway demo keys, committed so the project runs as

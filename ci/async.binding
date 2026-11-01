@@ -1,0 +1,17 @@
+<!--
+  Same as src/main/webas/async.binding, but turns async mapping off for
+  RevogateCertificate. Its response message has no parts, and the JDK's
+  wsimport refuses to generate an async bean for it (JBoss wsconsume allowed
+  it). The replication code tested in CI does not use that operation.
+-->
+<bindings
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns="http://java.sun.com/xml/ns/jaxws" >
+     <bindings node="wsdl:definitions">
+         <enableAsyncMapping>true</enableAsyncMapping>
+     </bindings>
+     <bindings node="wsdl:definitions/wsdl:portType/wsdl:operation[@name='RevogateCertificate']">
+         <enableAsyncMapping>false</enableAsyncMapping>
+     </bindings>
+</bindings>
