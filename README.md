@@ -1,6 +1,6 @@
-# quoruns-protocol
+# byzantine-quorums
 
-[![tests](https://github.com/alex-quiterio/quoruns-protocol/actions/workflows/tests.yml/badge.svg)](https://github.com/alex-quiterio/quoruns-protocol/actions/workflows/tests.yml)
+[![tests](https://github.com/alex-quiterio/byzantine-quorums/actions/workflows/tests.yml/badge.svg)](https://github.com/alex-quiterio/byzantine-quorums/actions/workflows/tests.yml)
 
 > *"A distributed system is one in which the failure of a computer you didn't
 > even know existed can render your own computer unusable."* (Leslie Lamport)
